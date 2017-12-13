@@ -1,0 +1,75 @@
+LIBRARY "C:\Users\19Jhuffman\Desktop\Computer Programming Project\TB Silver\tblibs\TrueDial.trc"
+LET Title$ = "Trivia by Jacob Huffman"
+LET Message$ = "Welcome to our Trivia Game!"
+LET Button$ = "Ok"
+CALL TD_Message ( Title$, Message$, Button$,1, Result)
+
+SET MODE "color256"
+
+RANDOMIZE
+
+SET WINDOW -30,30,-17,17
+LET game=2
+IF game= 2 then
+END IF
+
+Set background color "bl"
+
+CLEAR
+
+Set color "0"
+
+Clear
+
+INPUT Prompt" What is your name? ":NAME$
+
+Print "Welcome:", NAME$
+
+PAUSE 2
+
+CLEAR
+
+Print" Rules: Don't use the internet to find the answer. Your percentage right will appear after the last question. THE ANSWERS ARE CASE SENSITIVE"
+Print
+Print
+
+READ num_quest
+
+FOR i = 1 to num_quest
+
+    READ question$, answer$
+
+    PRINT question$;
+    LINE INPUT reply$
+
+    IF reply$ = answer$ THEN
+       LET right = right + 1
+       PRINT "Correct."
+    ELSE
+       PRINT "No, the correct answer is "; answer$; "."
+    END IF
+
+NEXT i
+
+PRINT "You got"; 100 * right/num_quest; "% right."
+
+DATA 14
+
+DATA How many credits do you need to graduate, 26
+DATA What is Jacobs middle name, Dylan
+DATA What is 2 + 2, 4
+DATA How many valves does a trumpet have, 3
+DATA When did the cold war end, 1989
+DATA What is the capital of pennsylvania, Harrisburg
+DATA What fictional city is the home of batman, Gotham City
+DATA Which type of dog has breeds called Scottish and Welsh, Terrior
+DATA Babe Ruth is associated with which sport, Baseball
+DATA What was Mohammed Ali's birth name, Cassius Clay
+DATA Which crime-fighting cartoon dog has the initals S.D. on his collar, Scooby Doo
+DATA What are the names of the names of the main characters in The Three Stooges (First Names),Larry Curly Moe
+DATA When was the first Little Rascals created?,1994
+DATA Which nfl team is gonna go 0-16 in the 2017 season?, Cleveland Browns
+
+CALL TD_YN ("Would you like to play again?", 1, result)
+
+END
